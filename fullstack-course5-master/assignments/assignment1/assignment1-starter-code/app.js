@@ -10,6 +10,11 @@ function LunchCheckController($scope,$filter) {
   $scope.separator =",";
 
   $scope.handleClick = function() {
+  if ($scope.name === "") {
+    $scope.message = "Enter atleast one lunch !!";
+    $scope.totalValue = 0;
+  } else {
+
   var arrayOfStrings = $scope.name.split($scope.separator);
   $scope.totalValue = arrayOfStrings.length;
   if ($scope.totalValue > 3) {
@@ -19,6 +24,7 @@ function LunchCheckController($scope,$filter) {
   }else {
     $scope.message = "Enter atleast one lunch !!";
   }
+}
   };
 }
 })();
